@@ -1,0 +1,32 @@
+import pandas as pd
+
+# Load the data
+file_path = 'Assignment Data.csv'  
+data = pd.read_csv(file_path)
+
+# Step 1: Extract unique influencer names from the Video URL
+data['Influencer Name'] = data['Video URL'].apply(lambda x: x.split('/')[-1].split('_')[0])
+
+# Step 2: Calculate average performance and performance consistency for each influencer
+influencer_stats = data.groupby('Influencer Name')['Performance'].agg(
+    Average_Performance='mean',
+    Performance_Consistency='std'
+).reset_index()
+
+# Step 3: Identify influencers who consistently drive better engagement
+# Define consistency as low standard deviation and high average performance
+# Sort influencers by Average Performance (descending) and Performance Consistency (ascending)
+influencer_stats_sorted = influencer_stats.sort_values(
+    by=['Average_Performance', 'Performance_Consistency'],
+    ascending=[False, True]
+)
+
+# Step 4: Save the results to a CSV file
+output_file = 'Consistent_Influencers.csv'
+influencer_stats_sorted.to_csv(output_file, index=False)
+
+# Print the unique influencers along with their average performance and consistency
+print("Unique influencers appearing across the videos along with their average performance and consistency:")
+print(influencer_stats_sorted)
+
+print(f"\nThe complete analysis has been saved to: {output_file}")
