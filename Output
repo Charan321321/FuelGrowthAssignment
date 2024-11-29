@@ -1,0 +1,15 @@
+Unique influencers appearing across the videos along with their average performance and consistency:
+        Influencer Name  Average_Performance  Performance_Consistency
+210  hd-930116227971248             2.284700                      NaN
+249  hd-983335896508749             2.263000                      NaN
+258  hd-989930303148492             2.259500                      NaN
+189  hd-904815481005158             2.257500                      NaN
+188  hd-904480964010630             2.252600                      NaN
+..                  ...                  ...                      ...
+47   hd-686083626588321             0.089092                      NaN
+95   hd-817768845898837             0.088471                      NaN
+181  hd-902309670925392             0.055853                      NaN
+179  hd-901695498551491             0.047507                      NaN
+172  hd-898103501380741             0.008252                      NaN
+
+[265 rows x 3 columns]
